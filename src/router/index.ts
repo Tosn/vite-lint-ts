@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { $get } from '@/utils/request';
-
+// 60ffbd8aedaa946ea9819949  60ffbd8aedaa946ea9819929
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/index/60ffbd8aedaa946ea9819929',
+    redirect: '/index/60ffbd8aedaa946ea9819949',
   },
   {
     path: '/index/:id',
