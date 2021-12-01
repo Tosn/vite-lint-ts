@@ -91,9 +91,13 @@ const getUser = async () => {
   return data;
 };
 
-const loadImage = (url: string): string => {
+// const loadImage = (url: string): string => {
+//   const path:string = isWebeye.value ? 'webeye' : 'modoo';
+//   return `${import.meta.env.BASE_URL}images/${path}/${url}`;
+// };
+const loadImage = (name: string): string => {
   const path:string = isWebeye.value ? 'webeye' : 'modoo';
-  return `${import.meta.env.BASE_URL}images/${path}/${url}`;
+  return new URL(`../assets/${path}/${name}`, import.meta.url).href;
 };
 
 const setTitle = (): void => {
