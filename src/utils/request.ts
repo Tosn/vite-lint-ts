@@ -13,19 +13,19 @@ const axiosInstance:AxiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => config, (error: any) => Promise.reject(error));
 
-axiosInstance.interceptors.response.use((response: AxiosResponse<ResponseType>) => response.data, (error: any) => Promise.reject(error));
+axiosInstance.interceptors.response.use((response: AxiosResponse<ResponseType>) => response, (error: any) => Promise.reject(error));
 
 const $post = <T>(url: string, params?: T): any => new Promise((resolve, reject) => {
-  axiosInstance.post(url, params).then((res) => {
-    resolve(res);
+  axiosInstance.post(url, params).then((res: AxiosResponse<ResponseType>) => {
+    resolve(res.data);
   }).catch((error) => {
     reject(error);
   });
 });
 
 const $get = <T>(url: string, params?: T): any => new Promise((resolve, reject) => {
-  axiosInstance.get(url, { params }).then((res) => {
-    resolve(res);
+  axiosInstance.get(url, { params }).then((res: AxiosResponse<ResponseType>) => {
+    resolve(res.data);
   }).catch((err) => {
     reject(err);
   });

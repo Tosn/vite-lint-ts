@@ -85,9 +85,10 @@ const linkUrl: ComputedRef<string> = computed(():string => (isWebeye.value ? 'ww
 const address: ComputedRef<string> = computed(():string => (isWebeye.value ? '南京市软件大道21号H栋1层' : '南京市软件大道21号H栋2层'));
 
 // methods
-const getUser = () => {
+const getUser = async () => {
   const userId: string = <string>route.params.id;
-  return $get(`users/${userId}`).then((res: any) => res.data);
+  const { data } = await $get(`users/${userId}`);
+  return data;
 };
 
 const loadImage = (url: string): string => {
